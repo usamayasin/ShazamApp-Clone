@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.afiniti.kiosk.shazamtask.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/toTrackDetailFragment"
+            app:destination="@id/trackDetailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/trackDetailFragment"
+        android:name="com.afiniti.kiosk.shazamtask.ui.detail.TrackDetailFragment"
+        android:label="fragment_track_detail"
+        tools:layout="@layout/track_detail_fragment">
+        <argument
+            android:name="track"
+            app:argType="com.afiniti.kiosk.shazamtask.model.Track" />
+    </fragment>
+</navigation>

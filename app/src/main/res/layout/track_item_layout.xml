@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.afiniti.kiosk.shazamtask.model.Track" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_1x"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="@dimen/radius_1x">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:padding="@dimen/padding_1x">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_image_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_track_detail_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <ImageView
+                android:id="@+id/iv_track_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guide_image_end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_track_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingStart="@dimen/padding_1x"
+                android:text="@{data.heading.title}"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="@dimen/title_max_text_size"
+                app:autoSizeMinTextSize="@dimen/title_min_text_size"
+                app:layout_constraintEnd_toEndOf="@id/guide_track_detail_end"
+                app:layout_constraintStart_toStartOf="@id/guide_image_end"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_track_artist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="@dimen/padding_1x"
+                android:text="@{data.heading.subtitle}"
+                android:textColor="@android:color/darker_gray"
+                app:autoSizeMaxTextSize="@dimen/subtitle_max_text_size"
+                app:autoSizeMinTextSize="@dimen/subtitle_min_text_size"
+                app:layout_constraintEnd_toEndOf="@id/guide_track_detail_end"
+                app:layout_constraintStart_toStartOf="@id/guide_image_end"
+                app:layout_constraintTop_toBottomOf="@id/tv_track_title" />
+
+            <ImageView
+                android:id="@+id/iv_detail_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_detail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="@dimen/margin_1x"
+                android:src="@drawable/apple_music"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guide_image_end"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginStart="@dimen/margin_1x"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guide_image_end"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
+
