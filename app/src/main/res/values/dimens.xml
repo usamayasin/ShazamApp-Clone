@@ -9,6 +9,7 @@
     <dimen name="padding_2x">15dp</dimen>
     <dimen name="padding_3x">20dp</dimen>
     <dimen name="margin_1x">10dp</dimen>
+    <dimen name="margin_0x">5dp</dimen>
     <dimen name="margin_2x">15dp</dimen>
     <dimen name="margin_3x">20dp</dimen>
     <dimen name="radius_1x">10dp</dimen>

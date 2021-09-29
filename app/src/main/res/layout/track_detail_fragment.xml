@@ -67,10 +67,10 @@
             android:layout_height="wrap_content"
             android:text="@string/share_song"
             android:textColor="@color/white"
+            app:backgroundTint="@color/teal_700"
             app:icon="@drawable/ic_share_24"
             app:iconTint="@color/white"
-            app:backgroundTint="@color/teal_700"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/margin_0x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_track_artist" />
