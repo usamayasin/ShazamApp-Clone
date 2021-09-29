@@ -40,7 +40,7 @@ class TrackDetailFragment : Fragment() {
     private fun bind(item: Track) {
         mBinding.data = item
         Glide.with(requireContext())
-            .load(item.stores.apple.coverarturl)
+            .load(track?.stores?.apple?.coverarturl)
             .apply(
                 RequestOptions()
                     .placeholder(R.drawable.loading_animation)

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="data"
             type="com.afiniti.kiosk.shazamtask.model.Track" />
@@ -92,6 +91,7 @@
                 android:layout_marginStart="@dimen/margin_1x"
                 android:src="@drawable/apple_music"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_track_artist"
                 app:layout_constraintStart_toEndOf="@id/guide_image_end"/>
             <View
                 android:layout_width="0dp"
