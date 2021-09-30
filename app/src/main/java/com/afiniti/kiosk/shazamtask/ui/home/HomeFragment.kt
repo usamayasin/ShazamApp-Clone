@@ -62,7 +62,7 @@ class HomeFragment : Fragment(), TrackAdapter.TrackClickListener {
 
     private fun init() {
         mBinding.progressTracks.visibility = View.VISIBLE
-        tracksAdapter = TrackAdapter(requireContext(), mutableListOf(), this)
+        tracksAdapter = TrackAdapter(mutableListOf(), this)
         mBinding.recyclerPopularTracks.adapter = tracksAdapter
     }
 

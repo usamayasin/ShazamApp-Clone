@@ -1,87 +1,88 @@
 package com.afiniti.kiosk.shazamtask.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
 data class Chart(
-    var chart: Array<Track>
+    @SerializedName("chart") var chart: Array<Track>
 ) : Parcelable
 
 
 @Parcelize
 data class Track(
-    var type: String,
-    var key: String,
-    var heading: Heading,
-    var images: Images,
-    var stores: Stores,
-    var streams: Streams,
-    var share: Share,
-    var alias: String,
-    var url: String,
-    var actions: List<Actions>
+    @SerializedName("type") var type: String,
+    @SerializedName("key") var key: String,
+    @SerializedName("heading") var heading: Heading,
+    @SerializedName("images") var images: Images,
+    @SerializedName("stores") var stores: Stores,
+    @SerializedName("streams") var streams: Streams,
+    @SerializedName("share") var share: Share,
+    @SerializedName("alias") var alias: String,
+    @SerializedName("url") var url: String,
+    @SerializedName("actions") var actions: List<Actions>
 ) : Parcelable
 
 @Parcelize
 data class Heading(
-    var title: String,
-    var subtitle: String
+    @SerializedName("title") var title: String,
+    @SerializedName("subtitle")  var subtitle: String
 ) : Parcelable
 
 @Parcelize
 data class Images(
-    var default: String
+    @SerializedName("default") var default: String
 ) : Parcelable
 
 @Parcelize
 data class Actions(
-    var type: String,
-    var uri: String,
-    var name: String
+    @SerializedName("type") var type: String,
+    @SerializedName("uri") var uri: String,
+    @SerializedName("name") var name: String
 ) : Parcelable
 
 @Parcelize
 data class Apple(
-    var actions: List<Actions>,
-    var explicit: Boolean,
-    var previewurl: String,
-    var coverarturl: String,
-    var trackid: String,
-    var productid: String
+    @SerializedName("actions") var actions: List<Actions>,
+    @SerializedName("explicit") var explicit: Boolean,
+    @SerializedName("previewurl") var previewUrl: String,
+    @SerializedName("coverarturl") var coverartUrl: String,
+    @SerializedName("trackid") var trackId: String,
+    @SerializedName("productid")  var productId: String
 ) : Parcelable
 
 @Parcelize
 data class Stores(
-    var apple: Apple
+    @SerializedName("apple") var apple: Apple
 ) : Parcelable
 
 @Parcelize
 data class Deezer(
-    var actions: List<Actions>
+    @SerializedName("actions") var actions: List<Actions>
 ) : Parcelable
 
 @Parcelize
 data class Spotify(
-    var actions: List<Actions>
+    @SerializedName("actions") var actions: List<Actions>
 ) : Parcelable
 
 @Parcelize
 data class Streams(
-    var deezer: Deezer,
-    var spotify: Spotify
+    @SerializedName("deezer") var deezer: Deezer,
+    @SerializedName("spotify") var spotify: Spotify
 ) : Parcelable
 
 
 @Parcelize
 data class Share(
-    var subject: String,
-    var text: String,
-    var href: String,
-    var image: String,
-    var twitter: String,
-    var html: String,
-    var avatar: String,
-    var snapchat: String
+    @SerializedName("subject") var subject: String,
+    @SerializedName("text")  var text: String,
+    @SerializedName("href")  var href: String,
+    @SerializedName("image")  var image: String,
+    @SerializedName("twitter") var twitter: String,
+    @SerializedName("html")  var html: String,
+    @SerializedName("avatar") var avatar: String,
+    @SerializedName("snapchat")  var snapchat: String
 ) : Parcelable

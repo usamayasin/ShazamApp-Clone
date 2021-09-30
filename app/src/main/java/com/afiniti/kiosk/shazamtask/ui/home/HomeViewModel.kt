@@ -1,6 +1,5 @@
 package com.afiniti.kiosk.shazamtask.ui.home
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import com.afiniti.kiosk.shazamtask.R
 import com.afiniti.kiosk.shazamtask.data.network.remote.errors.APIError
@@ -9,6 +8,7 @@ import com.afiniti.kiosk.shazamtask.data.network.remote.util.LiveApiResponse
 import com.afiniti.kiosk.shazamtask.data.repository.Repository
 import com.afiniti.kiosk.shazamtask.model.Chart
 import com.afiniti.kiosk.shazamtask.model.Track
+import com.afiniti.kiosk.shazamtask.utils.stringUtil.StringProviderImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -16,7 +16,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class HomeViewModel @Inject constructor(
-    private val ctx: Context,
+    private val stringProviderImpl: StringProviderImpl,
     private val repository: Repository
 ) : ViewModel() {
 
@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(
             if (resultBody != null) {
                 tracksLiveData.postValue(ApiResponse.success(resultBody.chart))
             } else {
-                val error = APIError(result.code(), ctx.getString(R.string.error_empty_response))
+                val error = APIError(result.code(), stringProviderImpl.getString(R.string.error_empty_response))
                 tracksLiveData.postValue(ApiResponse.error(error))
             }
         } else

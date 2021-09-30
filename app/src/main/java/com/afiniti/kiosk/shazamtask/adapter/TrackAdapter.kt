@@ -1,10 +1,7 @@
 package com.afiniti.kiosk.shazamtask.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.afiniti.kiosk.shazamtask.R
 import com.afiniti.kiosk.shazamtask.databinding.TrackItemLayoutBinding
@@ -14,14 +11,13 @@ import com.bumptech.glide.request.RequestOptions
 import java.util.ArrayList
 
 class TrackAdapter(
-    private var context: Context,
     listModels: List<Track>,
     private val listener: TrackClickListener
 ) :
     RecyclerView.Adapter<TrackAdapter.ImagesViewHolder>() {
 
     interface TrackClickListener {
-        fun onTrackClicked(Track: Track)
+        fun onTrackClicked(track: Track)
     }
 
     var listModels: List<Track>
@@ -35,9 +31,6 @@ class TrackAdapter(
         notifyDataSetChanged()
     }
 
-    fun getDataListSize():Int {
-        return this.listModels.size
-    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -45,8 +38,7 @@ class TrackAdapter(
         val trackItemLayoutBinding = TrackItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),parent,false
         )
-
-        return ImagesViewHolder(trackItemLayoutBinding, listModels, context)
+        return ImagesViewHolder(trackItemLayoutBinding)
     }
 
     override fun onBindViewHolder(holder: ImagesViewHolder, position: Int) {
@@ -59,26 +51,8 @@ class TrackAdapter(
     }
 
     inner class ImagesViewHolder(
-        private val itemViewDataBinding: TrackItemLayoutBinding,
-        imagesList: List<Track>,
-        private val context: Context
-    ) :
-        RecyclerView.ViewHolder(itemViewDataBinding.root), View.OnClickListener {
-
-        var dataList: List<Track> = imagesList
-
-        override fun onClick(v: View) {
-            if (adapterPosition < dataList.size) listener.onTrackClicked(dataList[adapterPosition])
-        }
-
-        init {
-            try {
-                itemViewDataBinding.root.setOnClickListener(this)
-            } catch (e: Exception) {
-                Toast.makeText(context, "Error in View Holder " + e.message, Toast.LENGTH_LONG)
-                    .show()
-            }
-        }
+        private val itemViewDataBinding: TrackItemLayoutBinding) :
+        RecyclerView.ViewHolder(itemViewDataBinding.root){
 
         fun bind(item: Track) {
             itemViewDataBinding.data = item
@@ -89,6 +63,10 @@ class TrackAdapter(
                         .placeholder(R.drawable.loading_animation)
                         .error(R.drawable.ic_broken_image)
                 ).into(itemViewDataBinding.ivTrackImage)
+
+            itemViewDataBinding.root.setOnClickListener{
+                listener.onTrackClicked(item)
+            }
         }
     }
 }

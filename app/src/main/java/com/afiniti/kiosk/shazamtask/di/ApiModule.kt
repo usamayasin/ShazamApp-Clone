@@ -1,5 +1,6 @@
 package com.afiniti.kiosk.shazamtask.di
 
+import com.afiniti.kiosk.shazamtask.data.network.remote.ApiService
 import com.afiniti.kiosk.shazamtask.data.repository.Repository
 import com.afiniti.kiosk.shazamtask.utils.AppConstants
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -50,7 +51,13 @@ class ApiModule constructor(private val baseURL: String) {
     }
 
     @Provides
-    fun provideRepository(retrofit: Retrofit): Repository {
-        return Repository(retrofit)
+    @Singleton
+    fun provideApiCallInterface(retrofit: Retrofit): ApiService {
+        return retrofit.create(ApiService::class.java)
+    }
+
+    @Provides
+    fun provideRepository(apiService: ApiService): Repository {
+        return Repository(apiService)
     }
 }

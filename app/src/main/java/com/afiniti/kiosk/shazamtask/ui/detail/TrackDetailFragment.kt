@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.afiniti.kiosk.shazamtask.R
 import com.afiniti.kiosk.shazamtask.databinding.TrackDetailFragmentBinding
-import com.afiniti.kiosk.shazamtask.model.Chart
 import com.afiniti.kiosk.shazamtask.model.Track
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import android.content.Intent
 
 class TrackDetailFragment : Fragment() {
 
@@ -35,12 +35,23 @@ class TrackDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bind(track)
+
+        mBinding.btnShare.setOnClickListener {
+            if (track?.share?.href.isEmpty().not()) {
+                val sharingIntent = Intent(Intent.ACTION_SEND)
+                sharingIntent.type = "text/plain"
+                val shareBody = track.share.text + "\t" + track.share.href
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, track.share.text)
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+                startActivity(Intent.createChooser(sharingIntent, "Share via"))
+            }
+        }
     }
 
     private fun bind(item: Track) {
         mBinding.data = item
         Glide.with(requireContext())
-            .load(track?.stores?.apple?.coverarturl)
+            .load(track?.stores?.apple?.coverartUrl)
             .apply(
                 RequestOptions()
                     .placeholder(R.drawable.loading_animation)

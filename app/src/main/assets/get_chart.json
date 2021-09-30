@@ -1,0 +1,83 @@
+{
+  "success": {
+    "properties": {},
+    "chart": [
+      {
+        "type": "MUSIC",
+        "key": "447549756",
+        "heading": {
+          "title": "thank u, next",
+          "subtitle": "Ariana Grande"
+        },
+        "images": {
+          "default": "https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/e4/06/d3/e406d3d8-2507-e585-c919-60bc5446985c/19UMGIM03689.rgb.jpg/400x400cc.jpg"
+        },
+        "stores": {
+          "apple": {
+            "actions": [
+              {
+                "type": "uri",
+                "uri": "https://music.apple.com/us/album/thank-u-next/1450330588?i=1450330686&app=music&itsct=Shazam_1"
+              }
+            ],
+            "explicit": true,
+            "previewurl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cc/30/be/cc30beb5-5ea8-7c9d-4da1-eba6d35be469/mzaf_4751939225553738950.plus.aac.ep.m4a",
+            "coverarturl": "https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/e4/06/d3/e406d3d8-2507-e585-c919-60bc5446985c/19UMGIM03689.rgb.jpg/400x400cc.jpg",
+            "trackid": "1450330686",
+            "productid": "1450330588"
+          }
+        },
+        "streams": {
+          "deezer": {
+            "actions": [
+              {
+                "name": "stream:deezer:searchdeeplink",
+                "type": "uri",
+                "uri": "deezer-query://www.deezer.com/play?query=%7Btrack%3A%27thank+u%2C+next%27%20artist%3A%27Ariana+Grande%27%7D"
+              }
+            ]
+          },
+          "spotify": {
+            "actions": [
+              {
+                "name": "stream:spotify:searchdeeplink",
+                "type": "uri",
+                "uri": "spotify:search:thank%20u%2C%20next%20Ariana%20Grande"
+              }
+            ]
+          }
+        },
+        "artists": [
+          {
+            "id": "40985191",
+            "adamid": "412778295"
+          }
+        ],
+        "share": {
+          "subject": "thank u, next - Ariana Grande",
+          "text": "I used Shazam to discover thank u, next by Ariana Grande.",
+          "href": "https://www.shazam.com/track/447549756/thank-u-next",
+          "image": "https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/e4/06/d3/e406d3d8-2507-e585-c919-60bc5446985c/19UMGIM03689.rgb.jpg/400x400cc.jpg",
+          "twitter": "I used @Shazam to discover thank u, next by Ariana Grande.",
+          "html": "https://www.shazam.com/snippets/email-share/447549756?lang=en&country=US",
+          "avatar": "https://is3-ssl.mzstatic.com/image/thumb/Features115/v4/b0/c1/95/b0c19533-8c69-6911-dba4-2770331a56e8/pr_source.png/800x800cc.jpg",
+          "snapchat": "https://www.shazam.com/partner/sc/track/447549756"
+        },
+        "alias": "thank-u-next",
+        "url": "https://www.shazam.com/track/447549756/thank-u-next",
+        "actions": [
+          {
+            "name": "track:447549756",
+            "type": "track",
+            "id": "447549756"
+          }
+        ],
+        "urlparams": {
+          "{tracktitle}": "thank+u%2C+next",
+          "{trackartist}": "Ariana+Grande"
+        },
+        "properties": {}
+      }
+    ]
+  }
+}
